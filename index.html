@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>SkillSync Solutions | Connecting Talent with Opportunity</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #ffffff;
+      color: #1a2c3e;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --navy: #0a2b44;
+      --gold: #b88746;
+      --white: #ffffff;
+      --gray-50: #f8fafc;
+      --gray-100: #f0f4f9;
+      --gray-200: #e2e8f0;
+      --gray-600: #475569;
+      --gray-800: #1e293b;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .navbar-primary {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: var(--white);
+      z-index: 1000;
+    }
+
+    .nav-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .logo-text {
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--navy);
+      letter-spacing: -0.3px;
+    }
+
+    .nav-links-primary {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links-primary a {
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--gray-800);
+      transition: color 0.2s;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .nav-links-primary a:hover {
+      color: var(--gold);
+    }
+
+    .btn-apply-nav {
+      background: var(--gold);
+      color: white !important;
+      padding: 8px 24px;
+      border-radius: 100px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .btn-apply-nav:hover {
+      background: var(--navy);
+      transform: translateY(-1px);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      font-size: 1.4rem;
+      background: none;
+      border: none;
+      color: var(--navy);
+      cursor: pointer;
+    }
+
+    .navbar-secondary {
+      position: fixed;
+      top: 58px;
+      left: 0;
+      width: 100%;
+      background: var(--navy);
+      z-index: 999;
+    }
+
+    .nav-secondary-flex {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 48px;
+      padding: 10px 0;
+      flex-wrap: wrap;
+    }
+
+    .nav-secondary-flex a {
+      color: #e2e8f0;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color 0.2s;
+      cursor: pointer;
+    }
+
+    .nav-secondary-flex a:hover {
+      color: var(--gold);
+    }
+
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 75%;
+      max-width: 320px;
+      height: 100vh;
+      background: var(--white);
+      z-index: 1150;
+      padding: 80px 32px 32px;
+      transition: right 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .mobile-nav.open {
+      right: 0;
+    }
+
+    .mobile-nav a {
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--navy);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 8px 0;
+      cursor: pointer;
+    }
+
+    .close-menu {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      font-size: 1.4rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1140;
+      display: none;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+
+    .business-popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1200;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0.3s, opacity 0.3s;
+    }
+
+    .business-popup-overlay.active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .business-popup {
+      position: fixed;
+      top: 25%;
+      right: -50%;
+      width: 50%;
+      height: 50%;
+      background: var(--navy);
+      z-index: 1201;
+      transition: right 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      border-radius: 24px 0 0 24px;
+      display: flex;
+      flex-direction: column;
+      padding: 28px 24px;
+    }
+
+    .business-popup.open {
+      right: 0;
+    }
+
+    .business-popup-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding-bottom: 16px;
+    }
+
+    .business-popup-header h3 {
+      color: var(--gold);
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .close-business-popup {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .close-business-popup:hover {
+      color: var(--gold);
+    }
+
+    .business-popup-content {
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .business-popup-section {
+      margin-bottom: 24px;
+      padding: 16px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 16px;
+      transition: 0.2s;
+    }
+
+    .business-popup-section:hover {
+      background: rgba(255,255,255,0.15);
+    }
+
+    .business-popup-section h4 {
+      color: var(--gold);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .business-popup-section p {
+      color: #e2e8f0;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .hero-wrapper {
+      margin-top: 108px;
+      width: 100%;
+      height: 65vh;
+      min-height: 500px;
+      max-height: 620px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      background-size: cover;
+      background-position: center 30%;
+      position: relative;
+    }
+
+    .slide-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(100deg, rgba(10,43,68,0.85) 0%, rgba(10,43,68,0.65) 60%, rgba(0,0,0,0.4) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .hero-text {
+      max-width: 780px;
+      color: white;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-text h1 span {
+      color: var(--gold);
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      line-height: 1.5;
+      margin-bottom: 32px;
+      opacity: 0.92;
+    }
+
+    .hero-cta {
+      background: var(--gold);
+      border: none;
+      padding: 12px 38px;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 100px;
+      color: var(--navy);
+      cursor: pointer;
+      transition: 0.25s;
+      display: inline-block;
+    }
+    .hero-cta:hover {
+      background: white;
+      transform: translateY(-3px);
+    }
+
+    .swiper-pagination-bullet-active {
+      background: var(--gold) !important;
+    }
+
+    .hero-image-strip {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      z-index: 20;
+      width: auto;
+      max-width: 70%;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(6px);
+      padding: 8px 12px;
+    }
+
+    .strip-slider-wrapper {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .strip-images {
+      display: flex;
+      width: fit-content;
+      animation: slideFadeStrip 30s linear infinite;
+      will-change: transform;
+    }
+
+    .strip-images:hover {
+      animation-play-state: paused;
+    }
+
+    .strip-images img {
+      width: 160px;
+      height: 110px;
+      object-fit: cover;
+      flex-shrink: 0;
+      display: block;
+      margin-right: 6px;
+      transition: transform 0.2s;
+      border-radius: 0 !important;
+    }
+
+    .strip-images img:last-child {
+      margin-right: 0;
+    }
+
+    .strip-images img:hover {
+      transform: scale(1.02);
+    }
+
+    @keyframes slideFadeStrip {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      left: 28px;
+      background: #25D366;
+      color: white;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      z-index: 1000;
+      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s;
+      text-decoration: none;
+    }
+    
+    .whatsapp-float.hide-wa {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+      background: #20b859;
+    }
+
+    .go-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: var(--gold);
+      color: var(--navy);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 1000;
+      transition: all 0.2s;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .go-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .go-top:hover {
+      background: var(--navy);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 860px) {
+      .container { padding: 0 24px; }
+      .form-card { padding: 32px; }
+      .section-title { font-size: 1.8rem; }
+      .hero-image-strip {
+        bottom: 12px;
+        right: 12px;
+        max-width: 80%;
+        padding: 6px 10px;
+      }
+      .strip-images img {
+        width: 110px;
+        height: 80px;
+      }
+      .hero-wrapper {
+        margin-top: 98px;
+        height: 55vh;
+        min-height: 420px;
+      }
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+      .nav-links-primary {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+      .navbar-secondary {
+        top: 50px;
+      }
+      .nav-secondary-flex {
+        gap: 24px;
+      }
+      .nav-secondary-flex a {
+        font-size: 0.7rem;
+      }
+      .business-popup {
+        width: 70%;
+        height: 55%;
+        top: 22.5%;
+      }
+      .whatsapp-float {
+        width: 48px;
+        height: 48px;
+        font-size: 26px;
+        bottom: 20px;
+        left: 20px;
+      }
+      .go-top {
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .strip-images img {
+        width: 85px;
+        height: 65px;
+      }
+      .hero-image-strip {
+        max-width: 90%;
+      }
+      .hero-text h1 {
+        font-size: 1.6rem;
+      }
+      .nav-secondary-flex {
+        gap: 16px;
+      }
+      .business-popup {
+        width: 85%;
+        height: 60%;
+        top: 20%;
+      }
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 2.3rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .section-description {
+      font-size: 1.05rem;
+      color: var(--gray-600);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+
+    .edu-card {
+      background: white;
+      border-radius: 24px;
+      padding: 32px;
+      border: 1px solid var(--gray-200);
+      transition: all 0.3s;
+    }
+
+    .edu-card:hover {
+      border-color: var(--gold);
+    }
+
+    .edu-card h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: var(--navy);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 48px;
+    }
+
+    .pill {
+      background: var(--gray-100);
+      padding: 8px 24px;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    .form-section {
+      background: var(--gray-50);
+    }
+
+    .form-card {
+      max-width: 960px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 32px;
+      padding: 48px;
+      border: 1px solid var(--gray-200);
+    }
+
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--navy);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 20px;
+      font-family: 'Inter', sans-serif;
+      transition: 0.2s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+
+    .btn-submit {
+      background: var(--navy);
+      color: white;
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 100px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .btn-submit:hover {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .status-message {
+      margin-top: 20px;
+      padding: 14px;
+      border-radius: 20px;
+      display: none;
+      text-align: center;
+    }
+
+    footer {
+      background: var(--navy);
+      color: #cbd5e1;
+      padding: 56px 0 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-col h4 {
+      color: var(--gold);
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .footer-col p, .footer-col a {
+      color: #b9d0e7;
+      text-decoration: none;
+      line-height: 1.8;
+      font-size: 0.9rem;
+    }
+
+    .footer-col a:hover {
+      color: var(--gold);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 18px;
+      margin-top: 16px;
+    }
+
+    .social-icons a {
+      color: #b9d0e7;
+      font-size: 1.3rem;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.8rem;
+    }
+
+@media screen and (max-width: 859px) { 
+  .nav-secondary-flex {
+    gap: 24px;
+    padding: 25px 0 16px 0;
+  }
+  }
+  </style>
+</head>
+<body>
+
+<nav class="navbar-primary">
+  <div class="container">
+    <div class="nav-flex">
+      <div class="logo-area">
+        <img src="assets/images/logo.png" alt="SkillSync Solutions logo" class="logo-img" onerror="this.src='https://placehold.co/400x120/0a2b44/b88746?text=SkillSync'">
+      </div>
+      <div class="nav-links-primary">
+        <a href="#home">Home</a>
+        <a href="#services">Programmes</a>
+        <a href="#apply">Apply Now</a>
+        <a href="#contact">Contact</a>
+        <a href="#apply" class="btn-apply-nav">Join Network →</a>
+      </div>
+      <button class="mobile-menu-btn" id="menuToggle"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
+
+<nav class="navbar-secondary">
+  <div class="container">
+    <div class="nav-secondary-flex">
+      <a href="#" class="business-nav-link" data-section="business-support">Business Support</a>
+      <a href="#" class="business-nav-link" data-section="workforce-solutions">Workforce Solutions</a>
+      <a href="#" class="business-nav-link" data-section="consulting">Consulting Services</a>
+      <a href="#" class="business-nav-link" data-section="operational-efficiency">Operational Efficiency</a>
+      <a href="#" class="business-nav-link" data-section="talent-sourcing">Talent Sourcing</a>
+    </div>
+  </div>
+</nav>
+
+<div class="business-popup-overlay" id="businessPopupOverlay">
+  <div class="business-popup" id="businessPopup">
+    <div class="business-popup-header">
+      <h3><i class="fas fa-building"></i> Business Solutions</h3>
+      <button hidden class="close-business-popup" id="closeBusinessPopup"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="business-popup-content" id="businessPopupContent">
+      <div class="business-popup-section"><h4>Business Support</h4><p>Comprehensive administrative and operational support tailored to your business needs.</p></div>
+      <div class="business-popup-section"><h4>Workforce Solutions</h4><p>Scalable staffing solutions for temporary, project-based, and permanent roles.</p></div>
+      <div class="business-popup-section"><h4>Consulting Services</h4><p>Strategic consulting to optimise your operational workflows.</p></div>
+      <div class="business-popup-section"><h4>Operational Efficiency</h4><p>Streamline processes and reduce overhead with our expert operational support.</p></div>
+      <div class="business-popup-section"><h4>Talent Sourcing</h4><p>Access our growing network of skilled talent across South Africa.</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="mobile-nav" id="mobileNav">
+  <button class="close-menu" id="closeMenu"><i class="fas fa-times"></i></button>
+  <a href="#home" onclick="closeMobileMenu()">Home</a>
+  <a href="#services" onclick="closeMobileMenu()">Programmes</a>
+  <a href="#apply" onclick="closeMobileMenu()">Apply Now</a>
+  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+  <a href="#apply" onclick="closeMobileMenu()" style="background:var(--gold); color:white; text-align:center; border-radius:40px;">Submit CV</a>
+  <div style="margin-top: 20px; padding-top: 10px; border-top: 1px solid var(--gray-200);">
+    <p style="font-size: 0.8rem; color: var(--gold); margin-bottom: 10px;">Business Solutions</p>
+    <a href="#" onclick="openBusinessPopupWithSection('business-support'); closeMobileMenu(); return false;">Business Support</a>
+    <a href="#" onclick="openBusinessPopupWithSection('workforce-solutions'); closeMobileMenu(); return false;">Workforce Solutions</a>
+    <a href="#" onclick="openBusinessPopupWithSection('consulting'); closeMobileMenu(); return false;">Consulting Services</a>
+    <a href="#" onclick="openBusinessPopupWithSection('operational-efficiency'); closeMobileMenu(); return false;">Operational Efficiency</a>
+    <a href="#" onclick="openBusinessPopupWithSection('talent-sourcing'); closeMobileMenu(); return false;">Talent Sourcing</a>
+  </div>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<div class="hero-wrapper" id="home">
+  <div class="swiper heroSwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1600&h=900&fit=crop');">
+  <div class="slide-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1>Get Paid. Gain <span>Experience.</span></h1>
+      <p>
+        Unemployed but holding a qualification? Don’t let your skills go to waste.
+        Join our talent pool and access paid short-term project opportunities.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1600&h=900&fit=crop');">
+  <div class="slide-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1>Earn Income & Build <span>Your CV.</span></h1>
+      <p>
+        Gain real-world corporate experience while earning through freelance,
+        temporary and project-based assignments.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1600&h=900&fit=crop');">
+  <div class="slide-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1>Flexible Work. Stronger <span>Networks.</span></h1>
+      <p>
+        Choose projects that fit your availability and connect with businesses
+        looking for motivated talent across South Africa.
+      </p>
+    </div>
+  </div>
+</div>
+
+    </div>
+    <div hidden class="swiper-pagination"></div>
+  </div>
+
+  <div class="hero-image-strip">
+    <div class="strip-slider-wrapper">
+      <div class="strip-images">
+        <img src="assets/images/01.jpg" alt="Team">
+        <img src="assets/images/03.jpg" alt="Meeting">
+        <img src="assets/images/05.png" alt="Learning">
+        <img src="assets/images/10.jpg" alt="Team">
+        <img src="assets/images/13.jpg" alt="Meeting">
+        <img src="assets/images/07.webp" alt="Learning">
+        <img src="assets/images/09.png" alt="Team">
+        <img src="assets/images/02.jpg" alt="Meeting">
+        <img src="assets/images/08.jpg" alt="Learning">
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Pathways to success</div>
+      <h2 class="section-title">Work, learn & grow with industry leaders</h2>
+      <p class="section-description">SkillSync offers integrated workforce solutions that reflect modern educational and professional standards.</p>
+    </div>
+    <div class="grid-3">
+      <div class="edu-card"><h3>Work-Integrated Learning</h3><p>Practical workplace exposure for students, graduates and career changers through temporary roles, internships and project-based assignments.</p></div>
+      <div class="edu-card"><h3>Business Support Systems</h3><p>Admin coordination, workflow optimisation, event staffing and operational assistance for startups, SMEs and corporate partners.</p></div>
+      <div class="edu-card"><h3>Skills Development Network</h3><p>A national talent database connecting individuals across all provinces with meaningful opportunities in various sectors.</p></div>
+    </div>
+    <div class="pill-row">
+      <span class="pill">Restaurants & Retail</span><span class="pill">Hospitality & Events</span>
+      <span class="pill">Corporate Admin</span><span class="pill">Startup Ecosystem</span><span class="pill">Project Placements</span>
+    </div>
+  </div>
+</section>
+
+<section id="apply" class="form-section">
+  <div class="container">
+    <div class="section-header"><div class="section-tag">Register your profile</div><h2 class="section-title">Submit your documents</h2><p class="section-description">Upload CV, certificates and personal details — your information goes directly to our talent team.</p></div>
+    <div class="form-card">
+      <form id="talentForm" enctype="multipart/form-data">
+        <div class="form-row"><div class="form-group"><label>Full Name *</label><input type="text" id="fullName" required></div><div class="form-group"><label>Email *</label><input type="email" id="email" required></div></div>
+        <div class="form-row"><div class="form-group"><label>Phone *</label><input type="tel" id="phone" required></div><div class="form-group"><label>Province *</label><select id="province" required><option value="">Select province</option><option>Eastern Cape</option><option>Free State</option><option>Gauteng</option><option>KwaZulu-Natal</option><option>Limpopo</option><option>Mpumalanga</option><option>Northern Cape</option><option>North West</option><option>Western Cape</option></select></div></div>
+        <div class="form-row"><div class="form-group"><label>Highest Education *</label><select id="education" required><option value="">Select education</option><option>Matric</option><option>National Diploma</option><option>Degree</option><option>Higher (Postgrad / Master's / Doctorate)</option></select></div><div class="form-group"><label>Skills / Experience</label><input type="text" id="skills" placeholder="e.g., Customer service, Administration"></div></div>
+        <div class="form-row"><div class="form-group"><label>Availability</label><select id="availability"><option>Immediately</option><option>Within 2 weeks</option><option>Within 1 month</option></select></div><div class="form-group"><label>Work Type</label><select id="workType"><option>Temporary / Day jobs</option><option>Project-based</option><option>Part-time support</option></select></div></div>
+        <div class="form-row"><div class="form-group"><label>📎 Upload CV / Resume * (PDF/DOC)</label><input type="file" id="cvFile" accept=".pdf,.doc,.docx" required><small style="font-size: 0.7rem;">Max 5MB</small></div><div class="form-group"><label>📁 Supporting documents (optional)</label><input type="file" id="supportingDocs" accept=".pdf,.doc,.docx,.jpg,.png"></div></div>
+        <div class="form-group"><label>Additional comments</label><textarea id="comments" rows="3" placeholder="Tell us about your career goals..."></textarea></div>
+        <button type="submit" class="btn-submit" id="submitBtn">✉ Send Application to SkillSync</button>
+        <div id="formStatus" class="status-message"></div>
+        <p style="font-size:0.7rem; text-align:center; margin-top:20px;">Placement not guaranteed. Your data remains in our active talent pool.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="container"><div class="footer-grid"><div class="footer-col"><h4>SkillSync Solutions</h4><p>Connecting skills with business support solutions. Building futures through work, learning and reliable enterprise support.</p><div class="social-icons"><a><i class="fab fa-facebook-f"></i></a><a><i class="fab fa-instagram"></i></a><a><i class="fab fa-tiktok"></i></a></div></div><div class="footer-col"><h4>Quick Links</h4><p><a href="#home">Home</a></p><p><a href="#services">Programmes</a></p><p><a href="#apply">Apply Now</a></p></div><div class="footer-col"><h4>Contact Us</h4><p><i class="fas fa-envelope"></i> <a href="mailto:Info@skillsyncsolutions.co.za"> Info@skillsyncsolutions.co.za</a></p><p><i class="fas fa-phone-alt"></i> +27 64 620 6571</p><p><i class="fas fa-map-marker-alt"></i> Nelspruit, Mpumalanga, South Africa</p></div></div><div class="footer-bottom"><p>&copy; 2026 SkillSync Solutions (Pty) Ltd. All rights reserved. | Bridging education, work and enterprise.</p></div></div>
+</footer>
+
+<a href="https://wa.me/27646206571?text=Hello%20SkillSync" class="whatsapp-float" id="whatsappIcon" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<div class="go-top" id="goTopBtn"><i class="fas fa-arrow-up"></i></div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const whatsappIcon = document.getElementById('whatsappIcon');
+  
+  function handleWhatsAppVisibility() {
+    if (window.scrollY === 0) {
+      whatsappIcon.classList.remove('hide-wa');
+    } else {
+      whatsappIcon.classList.add('hide-wa');
+    }
+  }
+  
+  handleWhatsAppVisibility();
+  window.addEventListener('scroll', handleWhatsAppVisibility);
+
+  document.querySelectorAll('.nav-links-primary a[href^="#"], .hero-cta, .footer-col a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href && href !== '#') {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  new Swiper('.heroSwiper', {
+    loop: true, autoplay: { delay: 4800, disableOnInteraction: false },
+    pagination: { el: '.swiper-pagination', clickable: true },
+    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    speed: 800
+  });
+
+  const businessPopupOverlay = document.getElementById('businessPopupOverlay');
+  const businessPopup = document.getElementById('businessPopup');
+  const businessPopupContent = document.getElementById('businessPopupContent');
+  
+  const sectionContent = {
+    'business-support': { title: 'Business Support', content: 'Comprehensive administrative and operational support tailored to your business needs. Including meeting coordination, workflow management, and daily operations assistance.' },
+    'workforce-solutions': { title: 'Workforce Solutions', content: 'Scalable staffing solutions for temporary, project-based, and permanent roles. Access pre-vetted candidates across multiple industries.' },
+    'consulting': { title: 'Consulting Services', content: 'Strategic consulting to optimise your operational workflows, improve organisation, and implement effective business support systems.' },
+    'operational-efficiency': { title: 'Operational Efficiency', content: 'Streamline processes and reduce overhead with our expert operational support. From document management to process automation.' },
+    'talent-sourcing': { title: 'Talent Sourcing', content: 'Access our growing network of skilled and unskilled talent across South Africa. Perfect for restaurants, retail, events, and admin roles.' }
+  };
+  
+  window.openBusinessPopupWithSection = function(sectionId) {
+    const section = sectionContent[sectionId];
+    if (section) {
+      businessPopupContent.innerHTML = `<div class="business-popup-section"><h4>${section.title}</h4><p>${section.content}</p></div>`;
+    }
+    businessPopupOverlay.classList.add('active');
+    businessPopup.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  
+  function closeBusinessPopup() { 
+    businessPopupOverlay.classList.remove('active'); 
+    businessPopup.classList.remove('open'); 
+    document.body.style.overflow = ''; 
+  }
+  
+  document.querySelectorAll('.business-nav-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const section = link.getAttribute('data-section');
+      window.openBusinessPopupWithSection(section);
+    });
+  });
+  
+  document.getElementById('closeBusinessPopup').addEventListener('click', closeBusinessPopup);
+  businessPopupOverlay.addEventListener('click', (e) => { if (e.target === businessPopupOverlay) closeBusinessPopup(); });
+
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  const overlayDiv = document.getElementById('overlay');
+  const closeMenuBtn = document.getElementById('closeMenu');
+  function openMobileMenu() { mobileNav.classList.add('open'); overlayDiv.classList.add('active'); document.body.style.overflow = 'hidden'; }
+  window.closeMobileMenu = function() { mobileNav.classList.remove('open'); overlayDiv.classList.remove('active'); document.body.style.overflow = ''; }
+  menuToggle.addEventListener('click', openMobileMenu);
+  closeMenuBtn.addEventListener('click', closeMobileMenu);
+  overlayDiv.addEventListener('click', closeMobileMenu);
+
+  const goTopBtn = document.getElementById('goTopBtn');
+  window.addEventListener('scroll', () => {
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrolled = window.pageYOffset;
+    if (scrolled > scrollHeight * 0.5) goTopBtn.classList.add('visible');
+    else goTopBtn.classList.remove('visible');
+  });
+  goTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  const form = document.getElementById('talentForm');
+  const statusDiv = document.getElementById('formStatus');
+  const submitBtn = document.getElementById('submitBtn');
+  const TARGET_EMAIL = "Info@skillsyncsolutions.co.za";
+  function showMessage(msg, isError) {
+    statusDiv.textContent = msg;
+    statusDiv.style.display = 'block';
+    statusDiv.style.background = isError ? '#ffebee' : '#e0f2e9';
+    statusDiv.style.color = isError ? '#c62828' : '#1e6f3f';
+    setTimeout(() => statusDiv.style.display = 'none', 5000);
+  }
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const fullName = document.getElementById('fullName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const province = document.getElementById('province').value;
+    const education = document.getElementById('education').value;
+    const cvFile = document.getElementById('cvFile').files[0];
+    if (!fullName || !email || !phone || !province || !education || !cvFile) return showMessage('Please fill all required fields.', true);
+    const fd = new FormData();
+    fd.append('_subject', `SkillSync Application: ${fullName}`);
+    fd.append('_captcha', 'false');
+    fd.append('_template', 'table');
+    fd.append('Full Name', fullName);
+    fd.append('Email', email);
+    fd.append('Phone', phone);
+    fd.append('Province', province);
+    fd.append('Education', education);
+    fd.append('Skills', document.getElementById('skills').value);
+    fd.append('Availability', document.getElementById('availability').value);
+    fd.append('Work Type', document.getElementById('workType').value);
+    fd.append('Comments', document.getElementById('comments').value);
+    fd.append('CV', cvFile);
+    const extra = document.getElementById('supportingDocs').files[0];
+    if (extra) fd.append('Supporting Documents', extra);
+    submitBtn.disabled = true; submitBtn.textContent = 'Submitting...';
+    try {
+      const res = await fetch(`https://formsubmit.co/ajax/${TARGET_EMAIL}`, { method: 'POST', body: fd });
+      if (res.ok) { showMessage(`✅ Thank you ${fullName}! Application sent.`, false); form.reset(); }
+      else throw new Error();
+    } catch (err) { showMessage('Submission failed. Please try again.', true); }
+    finally { submitBtn.disabled = false; submitBtn.textContent = '✉ Submit Application'; }
+  });
+
+const secondaryNav = document.querySelector('.navbar-secondary');
+const scrollThreshold = 0.1; // 40%
+
+function handleSecondaryNavVisibility() {
+  if (window.innerWidth <= 767) {
+    const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+    
+    if (scrollPercent > scrollThreshold) {
+      secondaryNav.style.display = 'none';
+    } else {
+      secondaryNav.style.display = 'block';
+    }
+  } else {
+    secondaryNav.style.display = 'block';
+  }
+}
+
+window.addEventListener('scroll', handleSecondaryNavVisibility);
+window.addEventListener('resize', handleSecondaryNavVisibility);
+handleSecondaryNavVisibility();
+</script>
+</body>
+</html>
