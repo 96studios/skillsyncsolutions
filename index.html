@@ -927,20 +927,222 @@
 
 <section id="apply" class="form-section">
   <div class="container">
-    <div class="section-header"><div class="section-tag">Register your profile</div><h2 class="section-title">Submit your documents</h2><p class="section-description">Upload CV, certificates and personal details — your information goes directly to our talent team.</p></div>
-    <div class="form-card">
-      <form id="talentForm" enctype="multipart/form-data">
-        <div class="form-row"><div class="form-group"><label>Full Name *</label><input type="text" id="fullName" required></div><div class="form-group"><label>Email *</label><input type="email" id="email" required></div></div>
-        <div class="form-row"><div class="form-group"><label>Phone *</label><input type="tel" id="phone" required></div><div class="form-group"><label>Province *</label><select id="province" required><option value="">Select province</option><option>Eastern Cape</option><option>Free State</option><option>Gauteng</option><option>KwaZulu-Natal</option><option>Limpopo</option><option>Mpumalanga</option><option>Northern Cape</option><option>North West</option><option>Western Cape</option></select></div></div>
-        <div class="form-row"><div class="form-group"><label>Highest Education *</label><select id="education" required><option value="">Select education</option><option>Matric</option><option>National Diploma</option><option>Degree</option><option>Higher (Postgrad / Master's / Doctorate)</option></select></div><div class="form-group"><label>Skills / Experience</label><input type="text" id="skills" placeholder="e.g., Customer service, Administration"></div></div>
-        <div class="form-row"><div class="form-group"><label>Availability</label><select id="availability"><option>Immediately</option><option>Within 2 weeks</option><option>Within 1 month</option></select></div><div class="form-group"><label>Work Type</label><select id="workType"><option>Temporary / Day jobs</option><option>Project-based</option><option>Part-time support</option></select></div></div>
-        <div class="form-row"><div class="form-group"><label>📎 Upload CV / Resume * (PDF/DOC)</label><input type="file" id="cvFile" accept=".pdf,.doc,.docx" required><small style="font-size: 0.7rem;">Max 5MB</small></div><div class="form-group"><label>📁 Supporting documents (optional)</label><input type="file" id="supportingDocs" accept=".pdf,.doc,.docx,.jpg,.png"></div></div>
-        <div class="form-group"><label>Additional comments</label><textarea id="comments" rows="3" placeholder="Tell us about your career goals..."></textarea></div>
-        <button type="submit" class="btn-submit" id="submitBtn">✉ Send Application to SkillSync</button>
-        <div id="formStatus" class="status-message"></div>
-        <p style="font-size:0.7rem; text-align:center; margin-top:20px;">Placement not guaranteed. Your data remains in our active talent pool.</p>
-      </form>
+    <section id="apply" class="form-section">
+  <div class="container">
+
+<div class="section-header">
+  <div class="section-tag">Register your profile</div>
+
+  <h2 class="section-title">
+    Submit your documents
+  </h2>
+
+  <p class="section-description">
+    Upload CV, certificates and personal details — your information goes directly to our talent team.
+  </p>
+</div>
+
+<div class="form-card">
+
+  <form 
+    id="talentForm"
+    action="https://formsubmit.co/kaygdesigner@96studios.co.za"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_subject" value="New SkillSync Application">
+    <input type="hidden" name="_next" value="https://skillsyncsolutions.netlify.app/thank-you.html">
+
+    <div class="form-row">
+
+      <div class="form-group">
+        <label>Full Name *</label>
+
+        <input 
+          type="text" 
+          id="fullName" 
+          name="Full Name" 
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label>Email *</label>
+
+        <input 
+          type="email" 
+          id="email" 
+          name="Email" 
+          required
+        >
+      </div>
+
     </div>
+
+    <div class="form-row">
+
+      <div class="form-group">
+        <label>Phone *</label>
+
+        <input 
+          type="tel" 
+          id="phone" 
+          name="Phone" 
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label>Province *</label>
+
+        <select 
+          id="province" 
+          name="Province" 
+          required
+        >
+          <option value="">Select province</option>
+          <option>Eastern Cape</option>
+          <option>Free State</option>
+          <option>Gauteng</option>
+          <option>KwaZulu-Natal</option>
+          <option>Limpopo</option>
+          <option>Mpumalanga</option>
+          <option>Northern Cape</option>
+          <option>North West</option>
+          <option>Western Cape</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="form-row">
+
+      <div class="form-group">
+        <label>Highest Education *</label>
+
+        <select 
+          id="education" 
+          name="Highest Education" 
+          required
+        >
+          <option value="">Select education</option>
+          <option>Matric</option>
+          <option>National Diploma</option>
+          <option>Degree</option>
+          <option>Higher (Postgrad / Master's / Doctorate)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Skills / Experience</label>
+
+        <input 
+          type="text" 
+          id="skills" 
+          name="Skills / Experience"
+          placeholder="e.g., Customer service, Administration"
+        >
+      </div>
+
+    </div>
+
+    <div class="form-row">
+
+      <div class="form-group">
+        <label>Availability</label>
+
+        <select 
+          id="availability" 
+          name="Availability"
+        >
+          <option>Immediately</option>
+          <option>Within 2 weeks</option>
+          <option>Within 1 month</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Work Type</label>
+
+        <select 
+          id="workType" 
+          name="Work Type"
+        >
+          <option>Temporary / Day jobs</option>
+          <option>Project-based</option>
+          <option>Part-time support</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="form-row">
+
+      <div class="form-group">
+        <label>📎 Upload CV / Resume * (PDF/DOC)</label>
+
+        <input 
+          type="file" 
+          id="cvFile" 
+          name="CV"
+          accept=".pdf,.doc,.docx"
+          required
+        >
+
+        <small style="font-size: 0.7rem;">
+          Max 5MB
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label>📁 Supporting documents (optional)</label>
+
+        <input 
+          type="file" 
+          id="supportingDocs" 
+          name="Supporting Documents"
+          accept=".pdf,.doc,.docx,.jpg,.png"
+        >
+      </div>
+
+    </div>
+
+    <div class="form-group">
+
+      <label>Additional comments</label>
+
+      <textarea 
+        id="comments" 
+        name="Additional Comments"
+        rows="3"
+        placeholder="Tell us about your career goals..."
+      ></textarea>
+
+    </div>
+
+    <button 
+      type="submit" 
+      class="btn-submit" 
+      id="submitBtn"
+    >
+      ✉ Send Application to SkillSync
+    </button>
+
+    <div id="formStatus" class="status-message"></div>
+
+    <p style="font-size:0.7rem; text-align:center; margin-top:20px;">
+      Placement not guaranteed. Your data remains in our active talent pool.
+    </p>
+
+  </form>
+
+</div>
+  </div>
+</section>
+
   </div>
 </section>
 
@@ -1043,78 +1245,6 @@
   });
   goTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-  const form = document.getElementById('talentForm');
-  const statusDiv = document.getElementById('formStatus');
-  const submitBtn = document.getElementById('submitBtn');
-  const TARGET_EMAIL = "kaygdesigner@96studios.co.za";
-  function showMessage(msg, isError) {
-    statusDiv.textContent = msg;
-    statusDiv.style.display = 'block';
-    statusDiv.style.background = isError ? '#ffebee' : '#e0f2e9';
-    statusDiv.style.color = isError ? '#c62828' : '#1e6f3f';
-    setTimeout(() => statusDiv.style.display = 'none', 5000);
-  }
-  form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-
-  const fullName = document.getElementById('fullName').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const phone = document.getElementById('phone').value.trim();
-  const province = document.getElementById('province').value;
-  const education = document.getElementById('education').value;
-  const cvFile = document.getElementById('cvFile').files[0];
-
-  if (!fullName || !email || !phone || !province || !education || !cvFile) {
-    return showMessage('Please fill all required fields.', true);
-  }
-
-  const fd = new FormData();
-
-  fd.append('_subject', `SkillSync Application: ${fullName}`);
-  fd.append('_captcha', 'false');
-
-  fd.append('Full Name', fullName);
-  fd.append('Email', email);
-  fd.append('Phone', phone);
-  fd.append('Province', province);
-  fd.append('Education', education);
-  fd.append('Skills', document.getElementById('skills').value);
-  fd.append('Availability', document.getElementById('availability').value);
-  fd.append('Work Type', document.getElementById('workType').value);
-  fd.append('Comments', document.getElementById('comments').value);
-
-  // FILES
-  fd.append('CV', cvFile);
-
-  const extra = document.getElementById('supportingDocs').files[0];
-  if (extra) {
-    fd.append('Supporting Documents', extra);
-  }
-
-  submitBtn.disabled = true;
-  submitBtn.textContent = 'Submitting...';
-
-  try {
-
-    const res = await fetch(`https://formsubmit.co/${TARGET_EMAIL}`, {
-      method: 'POST',
-      body: fd
-    });
-
-    if (res.ok) {
-      showMessage(`✅ Thank you ${fullName}! Application sent successfully.`, false);
-      form.reset();
-    } else {
-      throw new Error();
-    }
-
-  } catch (err) {
-    showMessage('Submission failed. Please try again.', true);
-  } finally {
-    submitBtn.disabled = false;
-    submitBtn.textContent = '✉ Send Application to SkillSync';
-  }
-});
 
 const secondaryNav = document.querySelector('.navbar-secondary');
 const scrollThreshold = 0.1; // 40%
