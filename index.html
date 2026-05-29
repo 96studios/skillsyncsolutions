@@ -892,15 +892,15 @@
   <div class="hero-image-strip">
     <div class="strip-slider-wrapper">
       <div class="strip-images">
-        <img src="assets/images/01.jpg" alt="Team">
-        <img src="assets/images/03.jpg" alt="Meeting">
-        <img src="assets/images/05.png" alt="Learning">
-        <img src="assets/images/10.jpg" alt="Team">
-        <img src="assets/images/13.jpg" alt="Meeting">
-        <img src="assets/images/07.webp" alt="Learning">
-        <img src="assets/images/09.png" alt="Team">
-        <img src="assets/images/02.jpg" alt="Meeting">
-        <img src="assets/images/08.jpg" alt="Learning">
+        <img src="assets/images/01.jpg" alt="image 01">
+        <img src="assets/images/03.jpg" alt="image 02">
+        <img src="assets/images/05.png" alt="image 03">
+        <img src="assets/images/10.jpg" alt="image 04">
+        <img src="assets/images/13.jpg" alt="image 05">
+        <img src="assets/images/07.png" alt="image 06">
+        <img src="assets/images/09.png" alt="image 07">
+        <img src="assets/images/02.jpg" alt="image 08">
+        <img src="assets/images/08.jpg" alt="image 09">
       </div>
     </div>
   </div>
@@ -945,7 +945,7 @@
 </section>
 
 <footer id="contact">
-  <div class="container"><div class="footer-grid"><div class="footer-col"><h4>SkillSync Solutions</h4><p>Connecting skills with business support solutions. Building futures through work, learning and reliable enterprise support.</p><div class="social-icons"><a><i class="fab fa-facebook-f"></i></a><a><i class="fab fa-instagram"></i></a><a><i class="fab fa-tiktok"></i></a></div></div><div class="footer-col"><h4>Quick Links</h4><p><a href="#home">Home</a></p><p><a href="#services">Programmes</a></p><p><a href="#apply">Apply Now</a></p></div><div class="footer-col"><h4>Contact Us</h4><p><i class="fas fa-envelope"></i> <a href="mailto:Info@skillsyncsolutions.co.za"> Info@skillsyncsolutions.co.za</a></p><p><i class="fas fa-phone-alt"></i> +27 64 620 6571</p><p><i class="fas fa-map-marker-alt"></i> Nelspruit, Mpumalanga, South Africa</p></div></div><div class="footer-bottom"><p>&copy; 2026 SkillSync Solutions (Pty) Ltd. All rights reserved. | Bridging education, work and enterprise.</p></div></div>
+  <div class="container"><div class="footer-grid"><div class="footer-col"><h4>SkillSync Solutions</h4><p>Connecting skills with business support solutions. Building futures through work, learning and reliable enterprise support.</p><div class="social-icons"><a><i class="fab fa-facebook-f"></i></a><a><i class="fab fa-instagram"></i></a><a><i class="fab fa-tiktok"></i></a></div></div><div class="footer-col"><h4>Quick Links</h4><p><a href="#home">Home</a></p><p><a href="#services">Programmes</a></p><p><a href="#apply">Apply Now</a></p></div><div class="footer-col"><h4>Contact Us</h4><p><i class="fas fa-envelope"></i> <a href="mailto:kaygdesigner@96studios.co.za"> kaygdesigner@96studios.co.za</a></p><p><i class="fas fa-phone-alt"></i> +27 64 620 6571</p><p><i class="fas fa-map-marker-alt"></i> Nelspruit, Mpumalanga, South Africa</p></div></div><div class="footer-bottom"><p>&copy; 2026 SkillSync Solutions (Pty) Ltd. All rights reserved. | Bridging education, work and enterprise.</p></div></div>
 </footer>
 
 <a href="https://wa.me/27646206571?text=Hello%20SkillSync" class="whatsapp-float" id="whatsappIcon" target="_blank"><i class="fab fa-whatsapp"></i></a>
@@ -1046,7 +1046,7 @@
   const form = document.getElementById('talentForm');
   const statusDiv = document.getElementById('formStatus');
   const submitBtn = document.getElementById('submitBtn');
-  const TARGET_EMAIL = "Info@skillsyncsolutions.co.za";
+  const TARGET_EMAIL = "kaygdesigner@96studios.co.za";
   function showMessage(msg, isError) {
     statusDiv.textContent = msg;
     statusDiv.style.display = 'block';
@@ -1055,38 +1055,66 @@
     setTimeout(() => statusDiv.style.display = 'none', 5000);
   }
   form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const fullName = document.getElementById('fullName').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const province = document.getElementById('province').value;
-    const education = document.getElementById('education').value;
-    const cvFile = document.getElementById('cvFile').files[0];
-    if (!fullName || !email || !phone || !province || !education || !cvFile) return showMessage('Please fill all required fields.', true);
-    const fd = new FormData();
-    fd.append('_subject', `SkillSync Application: ${fullName}`);
-    fd.append('_captcha', 'false');
-    fd.append('_template', 'table');
-    fd.append('Full Name', fullName);
-    fd.append('Email', email);
-    fd.append('Phone', phone);
-    fd.append('Province', province);
-    fd.append('Education', education);
-    fd.append('Skills', document.getElementById('skills').value);
-    fd.append('Availability', document.getElementById('availability').value);
-    fd.append('Work Type', document.getElementById('workType').value);
-    fd.append('Comments', document.getElementById('comments').value);
-    fd.append('CV', cvFile);
-    const extra = document.getElementById('supportingDocs').files[0];
-    if (extra) fd.append('Supporting Documents', extra);
-    submitBtn.disabled = true; submitBtn.textContent = 'Submitting...';
-    try {
-      const res = await fetch(`https://formsubmit.co/ajax/${TARGET_EMAIL}`, { method: 'POST', body: fd });
-      if (res.ok) { showMessage(`✅ Thank you ${fullName}! Application sent.`, false); form.reset(); }
-      else throw new Error();
-    } catch (err) { showMessage('Submission failed. Please try again.', true); }
-    finally { submitBtn.disabled = false; submitBtn.textContent = '✉ Submit Application'; }
-  });
+  e.preventDefault();
+
+  const fullName = document.getElementById('fullName').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const province = document.getElementById('province').value;
+  const education = document.getElementById('education').value;
+  const cvFile = document.getElementById('cvFile').files[0];
+
+  if (!fullName || !email || !phone || !province || !education || !cvFile) {
+    return showMessage('Please fill all required fields.', true);
+  }
+
+  const fd = new FormData();
+
+  fd.append('_subject', `SkillSync Application: ${fullName}`);
+  fd.append('_captcha', 'false');
+
+  fd.append('Full Name', fullName);
+  fd.append('Email', email);
+  fd.append('Phone', phone);
+  fd.append('Province', province);
+  fd.append('Education', education);
+  fd.append('Skills', document.getElementById('skills').value);
+  fd.append('Availability', document.getElementById('availability').value);
+  fd.append('Work Type', document.getElementById('workType').value);
+  fd.append('Comments', document.getElementById('comments').value);
+
+  // FILES
+  fd.append('CV', cvFile);
+
+  const extra = document.getElementById('supportingDocs').files[0];
+  if (extra) {
+    fd.append('Supporting Documents', extra);
+  }
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Submitting...';
+
+  try {
+
+    const res = await fetch(`https://formsubmit.co/${TARGET_EMAIL}`, {
+      method: 'POST',
+      body: fd
+    });
+
+    if (res.ok) {
+      showMessage(`✅ Thank you ${fullName}! Application sent successfully.`, false);
+      form.reset();
+    } else {
+      throw new Error();
+    }
+
+  } catch (err) {
+    showMessage('Submission failed. Please try again.', true);
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = '✉ Send Application to SkillSync';
+  }
+});
 
 const secondaryNav = document.querySelector('.navbar-secondary');
 const scrollThreshold = 0.1; // 40%
