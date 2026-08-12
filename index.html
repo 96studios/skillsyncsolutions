@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="icon" type="image/png" href="favicon.png">
   <title>SkillSync Solutions | Connecting Talent with Opportunity</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -645,6 +646,154 @@
       color: var(--navy);
     }
 
+    .about-section {
+      background: var(--gray-50);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .about-copy h2 {
+      font-size: 2.3rem;
+      color: var(--navy);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .about-copy p {
+      color: var(--gray-600);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .about-points {
+      display: grid;
+      gap: 16px;
+    }
+
+    .about-point {
+      background: white;
+      border: 1px solid var(--gray-200);
+      border-radius: 20px;
+      padding: 20px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .about-point i {
+      color: var(--gold);
+      font-size: 1.15rem;
+      margin-top: 3px;
+    }
+
+    .about-point h4 {
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .about-point p {
+      color: var(--gray-600);
+      line-height: 1.5;
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    .client-services-section {
+      background: white;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .service-card {
+      border: 1px solid var(--gray-200);
+      border-radius: 24px;
+      padding: 30px;
+      background: white;
+      transition: all 0.25s ease;
+    }
+
+    .service-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--navy);
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      font-size: 1.15rem;
+    }
+
+    .service-card h3 {
+      color: var(--navy);
+      font-size: 1.25rem;
+      margin-bottom: 16px;
+    }
+
+    .service-card ul {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+    }
+
+    .service-card li {
+      color: var(--gray-600);
+      line-height: 1.55;
+      padding-left: 24px;
+      position: relative;
+      font-size: 0.92rem;
+    }
+
+    .service-card li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--gold);
+      font-weight: 800;
+    }
+
+    .service-card strong {
+      color: var(--navy);
+    }
+
+    .services-cta {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .services-cta a {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 700;
+      padding: 13px 30px;
+      border-radius: 100px;
+    }
+
+    @media (max-width: 860px) {
+      .about-grid, .service-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .form-section {
       background: var(--gray-50);
     }
@@ -787,7 +936,9 @@
       </div>
       <div class="nav-links-primary">
         <a href="#home">Home</a>
-        <a href="#services">Programmes</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#programmes">Programmes</a>
         <a href="#apply">Apply Now</a>
         <a href="#contact">Contact</a>
         <a href="#apply" class="btn-apply-nav">Join Network →</a>
@@ -800,11 +951,11 @@
 <nav class="navbar-secondary">
   <div class="container">
     <div class="nav-secondary-flex">
-      <a href="#" class="business-nav-link" data-section="business-support">Business Support</a>
-      <a href="#" class="business-nav-link" data-section="workforce-solutions">Workforce Solutions</a>
-      <a href="#" class="business-nav-link" data-section="consulting">Consulting Services</a>
-      <a href="#" class="business-nav-link" data-section="operational-efficiency">Operational Efficiency</a>
-      <a href="#" class="business-nav-link" data-section="talent-sourcing">Talent Sourcing</a>
+      <a href="#" class="business-nav-link" data-section="seta-compliance">SETA Compliance</a>
+      <a href="#" class="business-nav-link" data-section="funding">Grants & Funding</a>
+      <a href="#" class="business-nav-link" data-section="tenders">Tender Management</a>
+      <a href="#" class="business-nav-link" data-section="tax-incentives">Tax Incentives</a>
+      <a href="#" class="business-nav-link" data-section="project-staffing">Project Staffing</a>
     </div>
   </div>
 </nav>
@@ -816,11 +967,11 @@
       <button hidden class="close-business-popup" id="closeBusinessPopup"><i class="fas fa-times"></i></button>
     </div>
     <div class="business-popup-content" id="businessPopupContent">
-      <div class="business-popup-section"><h4>Business Support</h4><p>Comprehensive administrative and operational support tailored to your business needs.</p></div>
-      <div class="business-popup-section"><h4>Workforce Solutions</h4><p>Scalable staffing solutions for temporary, project-based, and permanent roles.</p></div>
-      <div class="business-popup-section"><h4>Consulting Services</h4><p>Strategic consulting to optimise your operational workflows.</p></div>
-      <div class="business-popup-section"><h4>Operational Efficiency</h4><p>Streamline processes and reduce overhead with our expert operational support.</p></div>
-      <div class="business-popup-section"><h4>Talent Sourcing</h4><p>Access our growing network of skilled talent across South Africa.</p></div>
+      <div class="business-popup-section"><h4>SETA Compliance & Mandatory Grant Recovery</h4><p>WSP/ATR submissions, Mandatory Grant claims, OFO mapping and external SDF advisory.</p></div>
+      <div class="business-popup-section"><h4>Discretionary Grants & SME Funding</h4><p>Funding applications for SETA programmes and development finance institutions, with B-BBEE alignment.</p></div>
+      <div class="business-popup-section"><h4>Tender Administration & Bid Management</h4><p>CSD management, bid compilation, SBD/MBD documentation, BOQ pricing and compliance vault maintenance.</p></div>
+      <div class="business-popup-section"><h4>SARS Tax Incentives & Allowances</h4><p>Section 12H learnership tax allowance and Employment Tax Incentive advisory.</p></div>
+      <div class="business-popup-section"><h4>Short-Term Project Staffing</h4><p>Pre-vetted agile talent deployment to help businesses scale capacity while controlling fixed employment costs.</p></div>
     </div>
   </div>
 </div>
@@ -828,17 +979,19 @@
 <div class="mobile-nav" id="mobileNav">
   <button class="close-menu" id="closeMenu"><i class="fas fa-times"></i></button>
   <a href="#home" onclick="closeMobileMenu()">Home</a>
-  <a href="#services" onclick="closeMobileMenu()">Programmes</a>
+  <a href="#about" onclick="closeMobileMenu()">About</a>
+  <a href="#services" onclick="closeMobileMenu()">Services</a>
+  <a href="#programmes" onclick="closeMobileMenu()">Programmes</a>
   <a href="#apply" onclick="closeMobileMenu()">Apply Now</a>
   <a href="#contact" onclick="closeMobileMenu()">Contact</a>
   <a href="#apply" onclick="closeMobileMenu()" style="background:var(--gold); color:white; text-align:center; border-radius:40px;">Submit CV</a>
   <div style="margin-top: 20px; padding-top: 10px; border-top: 1px solid var(--gray-200);">
     <p style="font-size: 0.8rem; color: var(--gold); margin-bottom: 10px;">Business Solutions</p>
-    <a href="#" onclick="openBusinessPopupWithSection('business-support'); closeMobileMenu(); return false;">Business Support</a>
-    <a href="#" onclick="openBusinessPopupWithSection('workforce-solutions'); closeMobileMenu(); return false;">Workforce Solutions</a>
-    <a href="#" onclick="openBusinessPopupWithSection('consulting'); closeMobileMenu(); return false;">Consulting Services</a>
-    <a href="#" onclick="openBusinessPopupWithSection('operational-efficiency'); closeMobileMenu(); return false;">Operational Efficiency</a>
-    <a href="#" onclick="openBusinessPopupWithSection('talent-sourcing'); closeMobileMenu(); return false;">Talent Sourcing</a>
+    <a href="#" onclick="openBusinessPopupWithSection('seta-compliance'); closeMobileMenu(); return false;">SETA Compliance</a>
+    <a href="#" onclick="openBusinessPopupWithSection('funding'); closeMobileMenu(); return false;">Grants & Funding</a>
+    <a href="#" onclick="openBusinessPopupWithSection('tenders'); closeMobileMenu(); return false;">Tender Management</a>
+    <a href="#" onclick="openBusinessPopupWithSection('tax-incentives'); closeMobileMenu(); return false;">Tax Incentives</a>
+    <a href="#" onclick="openBusinessPopupWithSection('project-staffing'); closeMobileMenu(); return false;">Project Staffing</a>
   </div>
 </div>
 <div class="overlay" id="overlay"></div>
@@ -906,7 +1059,80 @@
   </div>
 </div>
 
-<section id="services">
+<section id="about" class="about-section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-copy">
+        <div class="section-tag">About SkillSync Solutions</div>
+        <h2>Workforce, compliance and business support built around growth.</h2>
+        <p>SkillSync Solutions connects people, skills and business needs through practical workforce solutions and specialist enterprise support. We work with employers, SMEs and developing organisations that need reliable assistance with skills development, funding, tender readiness, tax incentives and short-term staffing.</p>
+        <p>Our approach combines opportunity creation with hands-on business administration. For job seekers and emerging talent, we create access to paid project work and workplace exposure. For businesses, we provide structured support that improves compliance, unlocks funding opportunities and strengthens operational capacity.</p>
+      </div>
+      <div class="about-points">
+        <div class="about-point"><i class="fas fa-briefcase"></i><div><h4>Business Growth Support</h4><p>Compliance, funding, tender and incentive support designed to help organisations access opportunities and remain submission-ready.</p></div></div>
+        <div class="about-point"><i class="fas fa-users"></i><div><h4>Workforce Solutions</h4><p>Flexible access to pre-vetted talent for short-term, project-based and operational staffing requirements.</p></div></div>
+        <div class="about-point"><i class="fas fa-graduation-cap"></i><div><h4>Skills Development</h4><p>Support that aligns workplace learning, SETA requirements and talent development with business objectives.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="client-services-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Services for our clients</div>
+      <h2 class="section-title">Compliance, funding, tenders, tax & workforce support</h2>
+      <p class="section-description">Practical support for South African businesses that want to improve compliance, recover available incentives, access funding and scale their workforce efficiently.</p>
+    </div>
+    <div class="service-grid">
+      <article class="service-card">
+        <h3>SETA Compliance & Mandatory Grant Recovery</h3>
+        <ul>
+          <li><strong>Workplace Skills Plan (WSP) & Annual Training Report (ATR):</strong> Audit employee data, map job roles to OFO codes, and prepare annual compliance submissions before the 30 April deadline.</li>
+          <li><strong>Mandatory Grant Claims:</strong> Support levy-paying employers with claims to recover 20% of their Skills Development Levy (SDL), subject to applicable SETA requirements.</li>
+          <li><strong>External SDF Advisory:</strong> Provide Skills Development Facilitator support and administration on relevant SETA management portals.</li>
+        </ul>
+      </article>
+
+      <article class="service-card">
+        <h3>Discretionary Grants & SME Funding Facilitation</h3>
+        <ul>
+          <li><strong>SETA Discretionary Grants:</strong> Draft and submit funding proposals for learnerships, internships, bursaries and skills development cohorts.</li>
+          <li><strong>SME Development Funding:</strong> Package grant and loan applications for DFIs and programmes including NYDA, SEFA, NEF, IDC and the dtic.</li>
+          <li><strong>B-BBEE Alignment:</strong> Structure training, enterprise and socio-economic development initiatives to support Skills Development, ESD and SED scorecard objectives.</li>
+        </ul>
+      </article>
+
+      <article class="service-card">
+        <h3>Tender Administration & Bid Management</h3>
+        <ul>
+          <li><strong>CSD Profile Management:</strong> Set up and maintain Central Supplier Database profiles, tax status information and UNSPSC commodity coding.</li>
+          <li><strong>End-to-End Bid Compilation:</strong> Complete required SBD/MBD forms, technical proposals and BOQ pricing matrices for public-sector and corporate RFQs.</li>
+          <li><strong>Compliance Vault Maintenance:</strong> Keep COIDA, CIPC, Tax PIN and B-BBEE supporting documents organised and current for faster submissions.</li>
+        </ul>
+      </article>
+
+      <article class="service-card">
+        <h3>SARS Tax Incentives & Allowance Advisory</h3>
+        <ul>
+          <li><strong>Section 12H Tax Allowance:</strong> Guide employers through learnership tax allowance requirements and supporting documentation, including higher allowances that may apply to learners with disabilities.</li>
+          <li><strong>Employment Tax Incentive (ETI):</strong> Assist employers in structuring qualifying youth employment and maintaining the records needed for monthly payroll incentive claims.</li>
+        </ul>
+      </article>
+
+      <article class="service-card">
+        <h3>Short-Term Project Staffing Platform</h3>
+        <ul>
+          <li><strong>Agile Talent Deployment:</strong> Connect businesses with pre-vetted, skilled talent for short-term and project-based requirements.</li>
+          <li><strong>Capacity Optimisation:</strong> Help clients scale operational capacity up or down while reducing the pressure of permanent fixed employment costs.</li>
+        </ul>
+      </article>
+    </div>
+    <div class="services-cta"><a href="#contact">Discuss your business needs →</a></div>
+  </div>
+</section>
+
+<section id="programmes">
   <div class="container">
     <div class="section-header">
       <div class="section-tag">Pathways to success</div>
@@ -924,233 +1150,128 @@
     </div>
   </div>
 </section>
-
+<iframe name="hiddenFrame" style="display:none;"></iframe>
 <section id="apply" class="form-section">
   <div class="container">
-    <section id="apply" class="form-section">
-  <div class="container">
+    <div class="section-header"><div class="section-tag">Register your profile</div><h2 class="section-title">Submit your documents</h2><p class="section-description">Upload CV, certificates and personal details — your information goes directly to our talent team.</p></div>
+    <div class="form-card">
+      <form id="talentForm" action="https://formsubmit.co/info@skillsyncsolutions.co.za" method="POST" enctype="multipart/form-data" target="hiddenFrame">
 
-<div class="section-header">
-  <div class="section-tag">Register your profile</div>
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_subject" value="SkillSync Application">
 
-  <h2 class="section-title">
-    Submit your documents
-  </h2>
-
-  <p class="section-description">
-    Upload CV, certificates and personal details — your information goes directly to our talent team.
-  </p>
-</div>
-
-<div class="form-card">
-
-  <form 
-    id="talentForm"
-    action="https://formsubmit.co/kaygdesigner@96studios.co.za"
-    method="POST"
-    enctype="multipart/form-data"
-  >
-
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_subject" value="New SkillSync Application">
-    <input type="hidden" name="_next" value="https://skillsyncsolutions.netlify.app/thank-you.html">
-
-    <div class="form-row">
-
-      <div class="form-group">
-        <label>Full Name *</label>
-
-        <input 
-          type="text" 
-          id="fullName" 
-          name="Full Name" 
-          required
-        >
-      </div>
-
-      <div class="form-group">
-        <label>Email *</label>
-
-        <input 
-          type="email" 
-          id="email" 
-          name="Email" 
-          required
-        >
-      </div>
-
-    </div>
-
-    <div class="form-row">
-
-      <div class="form-group">
-        <label>Phone *</label>
-
-        <input 
-          type="tel" 
-          id="phone" 
-          name="Phone" 
-          required
-        >
-      </div>
-
-      <div class="form-group">
-        <label>Province *</label>
-
-        <select 
-          id="province" 
-          name="Province" 
-          required
-        >
-          <option value="">Select province</option>
-          <option>Eastern Cape</option>
-          <option>Free State</option>
-          <option>Gauteng</option>
-          <option>KwaZulu-Natal</option>
-          <option>Limpopo</option>
-          <option>Mpumalanga</option>
-          <option>Northern Cape</option>
-          <option>North West</option>
-          <option>Western Cape</option>
-        </select>
-      </div>
-
-    </div>
-
-    <div class="form-row">
-
-      <div class="form-group">
-        <label>Highest Education *</label>
-
-        <select 
-          id="education" 
-          name="Highest Education" 
-          required
-        >
-          <option value="">Select education</option>
-          <option>Matric</option>
-          <option>National Diploma</option>
-          <option>Degree</option>
-          <option>Higher (Postgrad / Master's / Doctorate)</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label>Skills / Experience</label>
-
-        <input 
-          type="text" 
-          id="skills" 
-          name="Skills / Experience"
-          placeholder="e.g., Customer service, Administration"
-        >
-      </div>
-
-    </div>
-
-    <div class="form-row">
-
-      <div class="form-group">
-        <label>Availability</label>
-
-        <select 
-          id="availability" 
-          name="Availability"
-        >
-          <option>Immediately</option>
-          <option>Within 2 weeks</option>
-          <option>Within 1 month</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label>Work Type</label>
-
-        <select 
-          id="workType" 
-          name="Work Type"
-        >
-          <option>Temporary / Day jobs</option>
-          <option>Project-based</option>
-          <option>Part-time support</option>
-        </select>
-      </div>
-
-    </div>
-
-    <div class="form-row">
-
-      <div class="form-group">
-        <label>📎 Upload CV / Resume * (PDF/DOC)</label>
-
-        <input 
-          type="file" 
-          id="cvFile" 
-          name="CV"
-          accept=".pdf,.doc,.docx"
-          required
-        >
-
-        <small style="font-size: 0.7rem;">
-          Max 5MB
-        </small>
-      </div>
-
-      <div class="form-group">
-        <label>📁 Supporting documents (optional)</label>
-
-        <input 
-          type="file" 
-          id="supportingDocs" 
-          name="Supporting Documents"
-          accept=".pdf,.doc,.docx,.jpg,.png"
-        >
-      </div>
-
+  <div class="form-row">
+    <div class="form-group">
+      <label>Full Name *</label>
+      <input type="text" id="fullName" name="fullName" required>
     </div>
 
     <div class="form-group">
+      <label>Email *</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+  </div>
 
-      <label>Additional comments</label>
-
-      <textarea 
-        id="comments" 
-        name="Additional Comments"
-        rows="3"
-        placeholder="Tell us about your career goals..."
-      ></textarea>
-
+  <div class="form-row">
+    <div class="form-group">
+      <label>Phone *</label>
+      <input type="tel" id="phone" name="phone" required>
     </div>
 
-    <button 
-      type="submit" 
-      class="btn-submit" 
-      id="submitBtn"
-    >
-      ✉ Send Application to SkillSync
-    </button>
-
-    <div id="formStatus" class="status-message"></div>
-
-    <p style="font-size:0.7rem; text-align:center; margin-top:20px;">
-      Placement not guaranteed. Your data remains in our active talent pool.
-    </p>
-
-  </form>
-
-</div>
+    <div class="form-group">
+      <label>Province *</label>
+      <select id="province" name="province" required>
+        <option value="">Select province</option>
+        <option>Eastern Cape</option>
+        <option>Free State</option>
+        <option>Gauteng</option>
+        <option>KwaZulu-Natal</option>
+        <option>Limpopo</option>
+        <option>Mpumalanga</option>
+        <option>Northern Cape</option>
+        <option>North West</option>
+        <option>Western Cape</option>
+      </select>
+    </div>
   </div>
-</section>
 
+  <div class="form-row">
+    <div class="form-group">
+      <label>Highest Education *</label>
+      <select id="education" name="education" required>
+        <option value="">Select education</option>
+        <option>Matric</option>
+        <option>National Diploma</option>
+        <option>Degree</option>
+        <option>Higher (Postgrad / Master's / Doctorate)</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Skills / Experience</label>
+      <input type="text" id="skills" name="skills" placeholder="e.g., Customer service, Administration">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label>Availability</label>
+      <select id="availability" name="availability">
+        <option>Immediately</option>
+        <option>Within 2 weeks</option>
+        <option>Within 1 month</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Work Type</label>
+      <select id="workType" name="workType">
+        <option>Temporary / Day jobs</option>
+        <option>Project-based</option>
+        <option>Part-time support</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label>📎 Upload CV / Resume * (PDF/DOC)</label>
+      <input type="file" id="cvFile" name="cvFile" accept=".pdf,.doc,.docx" required>
+      <small style="font-size: 0.7rem;">Max 5MB</small>
+    </div>
+
+    <div class="form-group">
+      <label>📁 Supporting documents (optional)</label>
+      <input type="file" id="supportingDocs" name="supportingDocs" accept=".pdf,.doc,.docx,.jpg,.png">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Additional comments</label>
+    <textarea id="comments" name="comments" rows="3" placeholder="Tell us about your career goals..."></textarea>
+  </div>
+
+  <button type="submit" class="btn-submit" id="submitBtn">
+    ✉ Send Application to SkillSync
+  </button>
+
+  <div id="formStatus" class="status-message"></div>
+
+  <p style="font-size:0.7rem; text-align:center; margin-top:20px;">
+    Placement not guaranteed. Your data remains in our active talent pool.
+  </p>
+
+</form>
+    </div>
   </div>
 </section>
 
 <footer id="contact">
-  <div class="container"><div class="footer-grid"><div class="footer-col"><h4>SkillSync Solutions</h4><p>Connecting skills with business support solutions. Building futures through work, learning and reliable enterprise support.</p><div class="social-icons"><a><i class="fab fa-facebook-f"></i></a><a><i class="fab fa-instagram"></i></a><a><i class="fab fa-tiktok"></i></a></div></div><div class="footer-col"><h4>Quick Links</h4><p><a href="#home">Home</a></p><p><a href="#services">Programmes</a></p><p><a href="#apply">Apply Now</a></p></div><div class="footer-col"><h4>Contact Us</h4><p><i class="fas fa-envelope"></i> <a href="mailto:kaygdesigner@96studios.co.za"> kaygdesigner@96studios.co.za</a></p><p><i class="fas fa-phone-alt"></i> +27 64 620 6571</p><p><i class="fas fa-map-marker-alt"></i> Nelspruit, Mpumalanga, South Africa</p></div></div><div class="footer-bottom"><p>&copy; 2026 SkillSync Solutions (Pty) Ltd. All rights reserved. | Bridging education, work and enterprise.</p></div></div>
+  <div class="container"><div class="footer-grid"><div class="footer-col"><h4>SkillSync Solutions</h4><p>Connecting skills with business support solutions. Building futures through work, learning and reliable enterprise support.</p><div class="social-icons"><a><i class="fab fa-facebook-f"></i></a><a><i class="fab fa-instagram"></i></a><a><i class="fab fa-tiktok"></i></a></div></div><div class="footer-col"><h4>Quick Links</h4><p><a href="#home">Home</a></p><p><a href="#about">About</a></p><p><a href="#services">Services</a></p><p><a href="#programmes">Programmes</a></p><p><a href="#apply">Apply Now</a></p></div><div class="footer-col"><h4>Contact Us</h4><p><i class="fas fa-envelope"></i> <a href="mailto:info@skillsyncsolutions.co.za"> info@skillsyncsolutions.co.za</a></p><p><i class="fas fa-phone-alt"></i> +2772 612 9066</p><p><i class="fas fa-map-marker-alt"></i> Nelspruit, Mpumalanga, South Africa</p></div></div><div class="footer-bottom"><p>&copy; 2026 SkillSync Solutions (Pty) Ltd. All rights reserved. | Bridging education, work and enterprise.</p></div></div>
 </footer>
 
-<a href="https://wa.me/27646206571?text=Hello%20SkillSync" class="whatsapp-float" id="whatsappIcon" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<a href="https://wa.me/27726129066?text=Hello%20SkillSync" class="whatsapp-float" id="whatsappIcon" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <div class="go-top" id="goTopBtn"><i class="fas fa-arrow-up"></i></div>
 
@@ -1192,11 +1313,11 @@
   const businessPopupContent = document.getElementById('businessPopupContent');
   
   const sectionContent = {
-    'business-support': { title: 'Business Support', content: 'Comprehensive administrative and operational support tailored to your business needs. Including meeting coordination, workflow management, and daily operations assistance.' },
-    'workforce-solutions': { title: 'Workforce Solutions', content: 'Scalable staffing solutions for temporary, project-based, and permanent roles. Access pre-vetted candidates across multiple industries.' },
-    'consulting': { title: 'Consulting Services', content: 'Strategic consulting to optimise your operational workflows, improve organisation, and implement effective business support systems.' },
-    'operational-efficiency': { title: 'Operational Efficiency', content: 'Streamline processes and reduce overhead with our expert operational support. From document management to process automation.' },
-    'talent-sourcing': { title: 'Talent Sourcing', content: 'Access our growing network of skilled and unskilled talent across South Africa. Perfect for restaurants, retail, events, and admin roles.' }
+    'seta-compliance': { title: 'SETA Compliance & Mandatory Grant Recovery', content: 'WSP and ATR preparation, employee data audits, OFO code mapping, Mandatory Grant claim support and external SDF advisory for SETA portal administration.' },
+    'funding': { title: 'Discretionary Grants & SME Funding Facilitation', content: 'Funding proposals for SETA learnerships, internships, bursaries and skills cohorts, plus application packaging for NYDA, SEFA, NEF, IDC and dtic programmes with B-BBEE alignment.' },
+    'tenders': { title: 'Tender Administration & Bid Management', content: 'CSD profile management, SBD/MBD completion, technical proposal preparation, BOQ pricing support and maintenance of key compliance documents for rapid bid submissions.' },
+    'tax-incentives': { title: 'SARS Tax Incentives & Allowance Advisory', content: 'Guidance on Section 12H learnership tax allowances and Employment Tax Incentive requirements, including the supporting documentation employers need for compliant claims.' },
+    'project-staffing': { title: 'Short-Term Project Staffing Platform', content: 'Agile deployment of pre-vetted talent for short-term and project-based needs, helping businesses flex capacity while lowering pressure from permanent fixed employment costs.' }
   };
   
   window.openBusinessPopupWithSection = function(sectionId) {
@@ -1245,6 +1366,18 @@
   });
   goTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
+  const form = document.getElementById('talentForm');
+  const statusDiv = document.getElementById('formStatus');
+  const submitBtn = document.getElementById('submitBtn');
+  const TARGET_EMAIL = "info@skillsyncsolutions.co.za";
+  function showMessage(msg, isError) {
+    statusDiv.textContent = msg;
+    statusDiv.style.display = 'block';
+    statusDiv.style.background = isError ? '#ffebee' : '#e0f2e9';
+    statusDiv.style.color = isError ? '#c62828' : '#1e6f3f';
+    setTimeout(() => statusDiv.style.display = 'none', 5000);
+  }
+
 
 const secondaryNav = document.querySelector('.navbar-secondary');
 const scrollThreshold = 0.1; // 40%
@@ -1266,6 +1399,35 @@ function handleSecondaryNavVisibility() {
 window.addEventListener('scroll', handleSecondaryNavVisibility);
 window.addEventListener('resize', handleSecondaryNavVisibility);
 handleSecondaryNavVisibility();
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const form = document.getElementById('talentForm');
+  const statusDiv = document.getElementById('formStatus');
+  const submitBtn = document.getElementById('submitBtn');
+
+  form.addEventListener('submit', function () {
+
+    statusDiv.style.display = 'block';
+    statusDiv.style.background = '#f0f4ff';
+    statusDiv.style.color = '#1e40af';
+    statusDiv.textContent = 'Submitting...';
+
+    submitBtn.disabled = true;
+
+    setTimeout(() => {
+      statusDiv.style.background = '#e0f2e9';
+      statusDiv.style.color = '#1e6f3f';
+      statusDiv.textContent = '✔ Application submitted successfully!';
+      form.reset();
+      submitBtn.disabled = false;
+    }, 2000);
+
+  });
+
+});
 </script>
 </body>
 </html>
